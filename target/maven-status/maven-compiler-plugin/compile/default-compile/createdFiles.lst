@@ -1,0 +1,8 @@
+com\correotp\Contacto.class
+com\correotp\Email.class
+com\correotp\Filtros.class
+com\correotp\BandejaEntrada.class
+com\correotp\BandejaSalida.class
+com\correotp\Main.class
+com\correotp\Enviar.class
+com\correotp\MailManager.class

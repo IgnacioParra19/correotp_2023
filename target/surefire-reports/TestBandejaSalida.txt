@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: TestBandejaSalida
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.128 s <<< FAILURE! - in TestBandejaSalida
+testAgregarEmailEnviados(TestBandejaSalida)  Time elapsed: 0.02 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.util.List.contains(Object)" because the return value of "com.correotp.BandejaSalida.getEmailsEnviados()" is null
+	at TestBandejaSalida.testAgregarEmailEnviados(TestBandejaSalida.java:25)
+
