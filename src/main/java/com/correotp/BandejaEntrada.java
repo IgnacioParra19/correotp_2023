@@ -9,4 +9,13 @@ public class BandejaEntrada {
     public void agregarEmailEnviados(Email email){
         emailsRecibidos.add(email);
     }
+    
+    public List<Email> getEmailsRecibidos() {
+        return emailsRecibidos;
+    }
+
+    public void setEmailsRecibidos(List<Email> emailsRecibidos) {
+        this.emailsRecibidos = emailsRecibidos;
+    }
+    
 }

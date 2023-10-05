@@ -9,4 +9,11 @@ public class BandejaSalida {
     public void agregarEmailEnviados(Email email){
         emailsEnviados.add(email);
     }
+    public List<Email> getEmailsEnviados() {
+        return emailsEnviados;
+    }
+
+    public void setEmailsEnviados(List<Email> emailsEnviados) {
+        this.emailsEnviados = emailsEnviados;
+    }
 }
