@@ -9,9 +9,12 @@ import java.util.List;
     public void agregarEmailEnviados(Email email){
 <span class="fc" id="L10">        emailsEnviados.add(email);</span>
 <span class="fc" id="L11">    }</span>
-
-    public List&lt;Contacto&gt; getEmailsEnviados() {
-<span class="fc" id="L14">        return null;</span>
+    public List&lt;Email&gt; getEmailsEnviados() {
+<span class="fc" id="L13">        return emailsEnviados;</span>
     }
+
+    public void setEmailsEnviados(List&lt;Email&gt; emailsEnviados) {
+<span class="fc" id="L17">        this.emailsEnviados = emailsEnviados;</span>
+<span class="fc" id="L18">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

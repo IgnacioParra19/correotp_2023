@@ -3,11 +3,20 @@
 import java.util.ArrayList;
 import java.util.List;
 
-<span class="nc" id="L6">public class BandejaEntrada {</span>
-<span class="nc" id="L7">    private List&lt;Email&gt; emailsRecibidos = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L6">public class BandejaEntrada {</span>
+<span class="fc" id="L7">    private List&lt;Email&gt; emailsRecibidos = new ArrayList&lt;&gt;();</span>
 
     public void agregarEmailEnviados(Email email){
-<span class="nc" id="L10">        emailsRecibidos.add(email);</span>
-<span class="nc" id="L11">    }</span>
+<span class="fc" id="L10">        emailsRecibidos.add(email);</span>
+<span class="fc" id="L11">    }</span>
+    
+    public List&lt;Email&gt; getEmailsRecibidos() {
+<span class="fc" id="L14">        return emailsRecibidos;</span>
+    }
+
+    public void setEmailsRecibidos(List&lt;Email&gt; emailsRecibidos) {
+<span class="nc" id="L18">        this.emailsRecibidos = emailsRecibidos;</span>
+<span class="nc" id="L19">    }</span>
+    
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
