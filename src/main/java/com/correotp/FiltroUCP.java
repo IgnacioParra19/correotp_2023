@@ -8,11 +8,15 @@ public class FiltroUCP {
     public List<Email> filtrarPorUCP(List<Email> emails) {
         List<Email> correosFiltrados = new ArrayList<>();
 
-        for (Email email : emails) {
-            if (contieneUCP(email)) {
-                correosFiltrados.add(email);
-            }
-        }
+
+    for (Email email : emails) {
+    // Verifica si el correo electrónico actual contiene la palabra clave "UCP"
+        if (contieneUCP(email)){
+        // se agrega este correo a la lista de correos filtrados si posee la palabra clave
+            correosFiltrados.add(email);
+    }
+}
+
 
         return correosFiltrados;
     }
@@ -21,8 +25,7 @@ public class FiltroUCP {
         String asunto = email.getAsunto();
         String contenido = email.getContenido();
 
-        // Verificar si el asunto o el contenido contienen "Universidad de la Cuenca del Plata" o "UCP"
-        return asunto.contains("Universidad de la Cuenca del Plata") || asunto.contains("UCP")
-                || contenido.contains("Universidad de la Cuenca del Plata") || contenido.contains("UCP");
+        // Verificar si el asunto o el contenido contienen "UCP"
+        return asunto.contains("UCP") || contenido.contains("UCP");
     }
 }

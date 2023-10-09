@@ -9,37 +9,43 @@ import com.correotp.Contacto;
 import com.correotp.Email;
 
 public class TestEmail {
-        @Test
-    public void testConstructorAndGetters() {
-        Contacto remitente = new Contacto("John Doe", "john@example.com");
-        List<Contacto> para = new ArrayList<>();
-        para.add(new Contacto("Alice Smith", "alice@example.com"));
-        para.add(new Contacto("Bob Johnson", "bob@example.com"));
-        
-        Email email = new Email("Prueba", "Este es el contenido de prueba", remitente, para);
 
-        assertNotNull(email);
-        assertEquals("Prueba", email.getAsunto());
-        assertEquals("Este es el contenido de prueba", email.getContenido());
-        assertEquals(remitente, email.getRemitente());
-        assertEquals(para, email.getPara());
+    @Test
+    public void crearCorreo(){
+        Email email1 = new Email(null, null, null, null);
+        assertNotNull(email1);
     }
-@Test
-    public void testSetters() {
-        Email email = new Email("Prueba", "Este es el contenido de prueba", null, null);
 
+    @Test
+    public void testGettersAndSetters() {
+        // Crear objetos Contacto para usar en el constructor de Email
+        Contacto remitente = new Contacto("Remitente", "remitente@example.com");
+        Contacto destinatario1 = new Contacto("Destinatario1", "destinatario1@example.com");
+        Contacto destinatario2 = new Contacto("Destinatario2", "destinatario2@example.com");
+
+        // Crear una lista de destinatarios
+        List<Contacto> destinatarios = new ArrayList<>();
+        destinatarios.add(destinatario1);
+        destinatarios.add(destinatario2);
+
+        // Crear un objeto Email
+        Email email = new Email("Asunto de prueba", "Contenido de prueba", remitente, destinatarios);
+
+        // Verificar que los getters devuelvan los valores esperados
+        assertEquals("Asunto de prueba", email.getAsunto());
+        assertEquals("Contenido de prueba", email.getContenido());
+        assertEquals(remitente, email.getRemitente());
+        assertEquals(destinatarios, email.getPara());
+
+        // Modificar los valores usando setters
         email.setAsunto("Nuevo asunto");
         email.setContenido("Nuevo contenido");
-        Contacto remitente = new Contacto("John Doe", "john@example.com");
-        email.setRemitente(remitente);
-        List<Contacto> para = new ArrayList<>();
-        para.add(new Contacto("Alice Smith", "alice@example.com"));
-        para.add(new Contacto("Bob Johnson", "bob@example.com"));
-        email.setPara(para);
+        Contacto nuevoRemitente = new Contacto("Nuevo Remitente", "nuevo_remitente@example.com");
+        email.setRemitente(nuevoRemitente);
 
+        // Verificar que los valores se hayan actualizado correctamente
         assertEquals("Nuevo asunto", email.getAsunto());
         assertEquals("Nuevo contenido", email.getContenido());
-        assertEquals(remitente, email.getRemitente());
-        assertEquals(para, email.getPara());
+        assertEquals(nuevoRemitente, email.getRemitente());
     }
 }

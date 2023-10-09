@@ -2,7 +2,6 @@ com\correotp\Contacto.class
 com\correotp\Email.class
 com\correotp\BandejaEntrada.class
 com\correotp\BandejaSalida.class
-com\correotp\Main.class
 com\correotp\FiltroUCP.class
 com\correotp\FiltroContenido.class
 com\correotp\FiltroAsunto.class
