@@ -3,25 +3,49 @@
 public class Contacto {
     private String nombre;
     private String email;
+    private BandejaEntrada bandejaEntrada;
+    private BandejaSalida bandejaSalida;
 
-<span class="fc" id="L7">    public Contacto(String nombre, String email){</span>
-<span class="fc" id="L8">        this.nombre = nombre;</span>
-<span class="fc" id="L9">        this.email = email;</span>
-<span class="fc" id="L10">    }</span>
-    public String getNombre(){
-<span class="fc" id="L12">        return nombre;</span>
+<span class="fc" id="L9">    public Contacto(String nombre, String email) {</span>
+<span class="fc" id="L10">        this.nombre = nombre;</span>
+<span class="fc" id="L11">        this.email = email;</span>
+<span class="fc" id="L12">        this.bandejaEntrada = new BandejaEntrada();</span>
+<span class="fc" id="L13">        this.bandejaSalida = new BandejaSalida();</span>
+<span class="fc" id="L14">    }</span>
+
+    public String getNombre() {
+<span class="fc" id="L17">        return nombre;</span>
     }
 
-    public void setNombre(String nombre){
-<span class="fc" id="L16">        this.nombre = nombre;</span>
-<span class="fc" id="L17">    }</span>
+    public void setNombre(String nombre) {
+<span class="fc" id="L21">        this.nombre = nombre;</span>
+<span class="fc" id="L22">    }</span>
 
-    public String getEmail(){
-<span class="fc" id="L20">        return email;</span>
+    public String getEmail() {
+<span class="fc" id="L25">        return email;</span>
     }
 
-    public void setEmail(String email){
-<span class="fc" id="L24">        this.email = email;</span>
-<span class="fc" id="L25">    }</span>
+    public void setEmail(String email) {
+<span class="fc" id="L29">        this.email = email;</span>
+<span class="fc" id="L30">    }</span>
+
+    public BandejaEntrada getBandejaEntrada() {
+<span class="fc" id="L33">        return bandejaEntrada;</span>
+    }
+
+    public BandejaSalida getBandejaSalida() {
+<span class="fc" id="L37">        return bandejaSalida;</span>
+    }
+
+    public void setBandejaEntrada(BandejaEntrada bandejaEntrada) {
+<span class="nc" id="L41">        this.bandejaEntrada = bandejaEntrada;</span>
+<span class="nc" id="L42">    }</span>
+
+    public void setBandejaSalida(BandejaSalida bandejaSalida) {
+<span class="nc" id="L45">        this.bandejaSalida = bandejaSalida;</span>
+<span class="nc" id="L46">    }</span>
+    public boolean equalsPorNombre(Contacto otro) {
+<span class="fc" id="L48">        return this.nombre.equals(otro.nombre);</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

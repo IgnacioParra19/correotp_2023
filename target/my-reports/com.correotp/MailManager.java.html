@@ -1,7 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MailManager.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">correotp_2023</a> &gt; <a href="index.source.html" class="el_package">com.correotp</a> &gt; <span class="el_source">MailManager.java</span></div><h1>MailManager.java</h1><pre class="source lang-java linenums">package com.correotp;
 
-<span class="nc" id="L3">public class MailManager {</span>
-    
-    
+import java.util.ArrayList;
+import java.util.List;
+
+public class MailManager {
+    private List&lt;Contacto&gt; usuarios;
+
+<span class="fc" id="L9">    public MailManager() {</span>
+<span class="fc" id="L10">        this.usuarios = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L11">    }</span>
+
+    // Agregar un usuario al sistema
+    public void agregarUsuario(Contacto usuario) {
+<span class="fc" id="L15">        usuarios.add(usuario);</span>
+<span class="fc" id="L16">    }</span>
+
+    // Enviar un correo electrónico desde un usuario remitente a uno o varios destinatarios
+    public void enviarCorreo(Contacto remitente, List&lt;Contacto&gt; destinatarios, String asunto, String contenido) {
+<span class="fc" id="L20">        Email correo = new Email(asunto, contenido, remitente, destinatarios);</span>
+
+        // Guardar el correo en la bandeja de salida del remitente
+<span class="fc" id="L23">        remitente.getBandejaSalida().agregarEmailEnviados(correo);</span>
+
+        // Agregar el correo a la bandeja de entrada de cada destinatario
+<span class="fc bfc" id="L26" title="All 2 branches covered.">        for (Contacto destinatario : destinatarios) {</span>
+<span class="fc" id="L27">            destinatario.getBandejaEntrada().agregarEmailRecibidos(correo);</span>
+<span class="fc" id="L28">        }</span>
+<span class="fc" id="L29">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

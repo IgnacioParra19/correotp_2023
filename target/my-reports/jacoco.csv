@@ -1,9 +1,12 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
 correotp_2023,com.correotp,BandejaEntrada,4,17,0,0,2,5,1,3,1,3
 correotp_2023,com.correotp,BandejaSalida,0,21,0,0,0,7,0,4,0,4
+correotp_2023,com.correotp,FiltroContenido,0,29,0,4,0,7,0,4,0,2
+correotp_2023,com.correotp,FiltroRemitente,0,33,1,5,0,8,1,4,0,2
 correotp_2023,com.correotp,Email,0,48,0,0,0,19,0,9,0,9
-correotp_2023,com.correotp,Enviar,3,0,0,0,1,0,1,0,1,0
-correotp_2023,com.correotp,MailManager,3,0,0,0,1,0,1,0,1,0
-correotp_2023,com.correotp,Filtros,3,0,0,0,1,0,1,0,1,0
-correotp_2023,com.correotp,Main,7,0,0,0,3,0,2,0,2,0
-correotp_2023,com.correotp,Contacto,0,23,0,0,0,10,0,5,0,5
+correotp_2023,com.correotp,FiltroUCP,1,53,4,8,0,11,4,5,0,3
+correotp_2023,com.correotp,MailManager,0,42,0,2,0,11,0,4,0,3
+correotp_2023,com.correotp,FiltroAsunto,0,29,0,4,0,7,0,4,0,2
+correotp_2023,com.correotp,Main,177,0,6,0,33,0,5,0,2,0
+correotp_2023,com.correotp,Contacto,8,45,0,0,4,15,2,8,2,8
+correotp_2023,com.correotp,FiltroDestinatario,0,33,1,5,0,8,1,4,0,2

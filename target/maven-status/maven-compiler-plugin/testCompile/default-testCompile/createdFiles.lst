@@ -1,5 +1,10 @@
-TestMailManager.class
-TestContacto.class
+TestFiltroAsunto.class
+TestFiltroRemitente.class
 TestBandejaEntrada.class
 TestEmail.class
+TestFiltroDestinatario.class
 TestBandejaSalida.class
+TestMailManager.class
+TestContacto.class
+TestFIltroUCP.class
+TestFiltroContenido.class

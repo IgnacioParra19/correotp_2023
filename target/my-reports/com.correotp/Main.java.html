@@ -1,8 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Main.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">correotp_2023</a> &gt; <a href="index.source.html" class="el_package">com.correotp</a> &gt; <span class="el_source">Main.java</span></div><h1>Main.java</h1><pre class="source lang-java linenums">package com.correotp;
 
-<span class="nc" id="L3">public class Main {</span>
+import java.util.ArrayList;
+import java.util.List;
+
+<span class="nc" id="L6">public class Main {</span>
     public static void main(String[] args) {
-<span class="nc" id="L5">        System.out.println(&quot;Hello world!&quot;);</span>
-<span class="nc" id="L6">    }</span>
+        // Crear usuarios
+<span class="nc" id="L9">        Contacto alice = new Contacto(&quot;Alice Smith&quot;, &quot;alice@example.com&quot;);</span>
+<span class="nc" id="L10">        Contacto bob = new Contacto(&quot;Bob Johnson&quot;, &quot;bob@example.com&quot;);</span>
+<span class="nc" id="L11">        Contacto carol = new Contacto(&quot;Carol Brown&quot;, &quot;carol@example.com&quot;);</span>
+
+        // Agregar usuarios al sistema de MailManager
+<span class="nc" id="L14">        MailManager mailManager = new MailManager();</span>
+<span class="nc" id="L15">        mailManager.agregarUsuario(alice);</span>
+<span class="nc" id="L16">        mailManager.agregarUsuario(bob);</span>
+<span class="nc" id="L17">        mailManager.agregarUsuario(carol);</span>
+
+        // Enviar un correo de Alice a Bob y Carol
+<span class="nc" id="L20">        List&lt;Contacto&gt; destinatarios = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L21">        destinatarios.add(bob);</span>
+<span class="nc" id="L22">        destinatarios.add(carol);</span>
+<span class="nc" id="L23">        String asunto = &quot;Prueba de correo&quot;;</span>
+<span class="nc" id="L24">        String contenido = &quot;Este es un correo de prueba.&quot;;</span>
+
+<span class="nc" id="L26">        mailManager.enviarCorreo(alice, destinatarios, asunto, contenido);</span>
+
+        // Verificar que el correo esté en la bandeja de entrada de Bob y Carol
+<span class="nc" id="L29">        List&lt;Email&gt; bandejaEntradaBob = bob.getBandejaEntrada().getEmailsRecibidos();</span>
+<span class="nc" id="L30">        List&lt;Email&gt; bandejaEntradaCarol = carol.getBandejaEntrada().getEmailsRecibidos();</span>
+
+<span class="nc" id="L32">        System.out.println(&quot;Bandeja de entrada de Bob:&quot;);</span>
+<span class="nc bnc" id="L33" title="All 2 branches missed.">        for (Email correo : bandejaEntradaBob) {</span>
+<span class="nc" id="L34">            System.out.println(&quot;Asunto: &quot; + correo.getAsunto());</span>
+<span class="nc" id="L35">            System.out.println(&quot;Contenido: &quot; + correo.getContenido());</span>
+<span class="nc" id="L36">        }</span>
+
+<span class="nc" id="L38">        System.out.println(&quot;Bandeja de entrada de Carol:&quot;);</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">        for (Email correo : bandejaEntradaCarol) {</span>
+<span class="nc" id="L40">            System.out.println(&quot;Asunto: &quot; + correo.getAsunto());</span>
+<span class="nc" id="L41">            System.out.println(&quot;Contenido: &quot; + correo.getContenido());</span>
+<span class="nc" id="L42">        }</span>
+
+        // Verificar que el correo esté en la bandeja de salida de Alice
+<span class="nc" id="L45">        List&lt;Email&gt; bandejaSalidaAlice = alice.getBandejaSalida().getEmailsEnviados();</span>
+
+<span class="nc" id="L47">        System.out.println(&quot;Bandeja de salida de Alice:&quot;);</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">        for (Email correo : bandejaSalidaAlice) {</span>
+<span class="nc" id="L49">            System.out.println(&quot;Asunto: &quot; + correo.getAsunto());</span>
+<span class="nc" id="L50">            System.out.println(&quot;Contenido: &quot; + correo.getContenido());</span>
+<span class="nc" id="L51">        }</span>
+<span class="nc" id="L52">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
