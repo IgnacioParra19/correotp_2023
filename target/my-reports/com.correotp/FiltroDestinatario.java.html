@@ -9,13 +9,15 @@ import java.util.List;
 <span class="fc" id="L9">        List&lt;Email&gt; correosFiltrados = new ArrayList&lt;&gt;();</span>
 
 <span class="fc bfc" id="L11" title="All 2 branches covered.">        for (Email email : emails) {</span>
-<span class="fc" id="L12">            List&lt;Contacto&gt; destinatarios = email.getPara();</span>
-<span class="pc bpc" id="L13" title="1 of 4 branches missed.">            if (destinatarios != null &amp;&amp; destinatarios.contains(destinatario)) {</span>
-<span class="fc" id="L14">                correosFiltrados.add(email);</span>
+            // Obtiene la lista de destinatarios del correo electrónico actual.
+<span class="fc" id="L13">            List&lt;Contacto&gt; destinatarios = email.getPara();</span>
+            // Verifica si la lista de destinatarios no es nula y contiene el contacto 'destinatario' especificado.
+<span class="pc bpc" id="L15" title="1 of 4 branches missed.">            if (destinatarios != null &amp;&amp; destinatarios.contains(destinatario)) {</span>
+<span class="fc" id="L16">                correosFiltrados.add(email); // Si el destinatario se encuentra en la lista de destinatarios, agrega este correo a la lista de correos filtrados.</span>
             }
-<span class="fc" id="L16">        }</span>
+<span class="fc" id="L18">        }</span>
 
-<span class="fc" id="L18">        return correosFiltrados;</span>
+<span class="fc" id="L20">        return correosFiltrados;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

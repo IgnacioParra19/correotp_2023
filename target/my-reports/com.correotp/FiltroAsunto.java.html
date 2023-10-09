@@ -6,11 +6,11 @@ import java.util.List;
 <span class="fc" id="L6">public class FiltroAsunto {</span>
     
     public List&lt;Email&gt; filtrarPorAsuntoPalabraClave(List&lt;Email&gt; emails, String palabraClave) {
-<span class="fc" id="L9">        List&lt;Email&gt; correosFiltrados = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L9">        List&lt;Email&gt; correosFiltrados = new ArrayList&lt;&gt;(); // Lista para almacenar los correos electrónicos que cumplen con el criterio</span>
 
 <span class="fc bfc" id="L11" title="All 2 branches covered.">        for (Email email : emails) {</span>
-<span class="fc bfc" id="L12" title="All 2 branches covered.">            if (email.getAsunto().contains(palabraClave)) {</span>
-<span class="fc" id="L13">                correosFiltrados.add(email);</span>
+<span class="fc bfc" id="L12" title="All 2 branches covered.">            if (email.getAsunto().contains(palabraClave)) { //Verifica si esta la palabra clave dentro del asunto de los correos</span>
+<span class="fc" id="L13">                correosFiltrados.add(email); // Agrega a la lista de correos filtrados si aparece la palabra clave dentro del asunto</span>
             }
 <span class="fc" id="L15">        }</span>
 

@@ -8,22 +8,25 @@ import java.util.List;
     public List&lt;Email&gt; filtrarPorUCP(List&lt;Email&gt; emails) {
 <span class="fc" id="L9">        List&lt;Email&gt; correosFiltrados = new ArrayList&lt;&gt;();</span>
 
-<span class="fc bfc" id="L11" title="All 2 branches covered.">        for (Email email : emails) {</span>
-<span class="pc bpc" id="L12" title="1 of 2 branches missed.">            if (contieneUCP(email)) {</span>
-<span class="fc" id="L13">                correosFiltrados.add(email);</span>
-            }
-<span class="fc" id="L15">        }</span>
 
-<span class="fc" id="L17">        return correosFiltrados;</span>
+<span class="fc bfc" id="L12" title="All 2 branches covered.">    for (Email email : emails) {</span>
+    // Verifica si el correo electrónico actual contiene la palabra clave &quot;UCP&quot;
+<span class="pc bpc" id="L14" title="1 of 2 branches missed.">        if (contieneUCP(email)){</span>
+        // se agrega este correo a la lista de correos filtrados si posee la palabra clave
+<span class="fc" id="L16">            correosFiltrados.add(email);</span>
+    }
+<span class="fc" id="L18">}</span>
+
+
+<span class="fc" id="L21">        return correosFiltrados;</span>
     }
 
     private boolean contieneUCP(Email email) {
-<span class="fc" id="L21">        String asunto = email.getAsunto();</span>
-<span class="fc" id="L22">        String contenido = email.getContenido();</span>
+<span class="fc" id="L25">        String asunto = email.getAsunto();</span>
+<span class="fc" id="L26">        String contenido = email.getContenido();</span>
 
-        // Verificar si el asunto o el contenido contienen &quot;Universidad de la Cuenca del Plata&quot; o &quot;UCP&quot;
-<span class="pc bpc" id="L25" title="1 of 4 branches missed.">        return asunto.contains(&quot;Universidad de la Cuenca del Plata&quot;) || asunto.contains(&quot;UCP&quot;)</span>
-<span class="pc bpc" id="L26" title="2 of 4 branches missed.">                || contenido.contains(&quot;Universidad de la Cuenca del Plata&quot;) || contenido.contains(&quot;UCP&quot;);</span>
+        // Verificar si el asunto o el contenido contienen &quot;UCP&quot;
+<span class="pc bpc" id="L29" title="1 of 4 branches missed.">        return asunto.contains(&quot;UCP&quot;) || contenido.contains(&quot;UCP&quot;);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

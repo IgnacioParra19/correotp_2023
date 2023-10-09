@@ -5,14 +5,15 @@ import java.util.List;
 
 <span class="fc" id="L6">public class FiltroContenido {</span>
     public List&lt;Email&gt; filtrarPorContenido(List&lt;Email&gt; emails, String palabraClave) {
-<span class="fc" id="L8">        List&lt;Email&gt; correosFiltrados = new ArrayList&lt;&gt;();</span>
+         // Lista para almacenar los correos electrónicos que cumplen con el criterio
+<span class="fc" id="L9">        List&lt;Email&gt; correosFiltrados = new ArrayList&lt;&gt;();</span>
 
-<span class="fc bfc" id="L10" title="All 2 branches covered.">        for (Email email : emails) {</span>
-<span class="fc bfc" id="L11" title="All 2 branches covered.">            if (email.getContenido().contains(palabraClave)) {</span>
-<span class="fc" id="L12">                correosFiltrados.add(email);</span>
+<span class="fc bfc" id="L11" title="All 2 branches covered.">        for (Email email : emails) {</span>
+<span class="fc bfc" id="L12" title="All 2 branches covered.">            if (email.getContenido().contains(palabraClave)) { // Verifica si el contenido del correo electrónico actual contiene la palabra clave especificada.</span>
+<span class="fc" id="L13">                correosFiltrados.add(email); // Si la palabra clave está presente en el contenido, agrega este correo a la lista de correos filtrados.</span>
             }
-<span class="fc" id="L14">        }</span>
-<span class="fc" id="L15">        return correosFiltrados;</span>
+<span class="fc" id="L15">        }</span>
+<span class="fc" id="L16">        return correosFiltrados;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

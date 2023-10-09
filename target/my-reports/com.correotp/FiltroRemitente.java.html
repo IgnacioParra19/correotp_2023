@@ -9,9 +9,9 @@ import java.util.List;
 <span class="fc" id="L9">        List&lt;Email&gt; correosFiltrados = new ArrayList&lt;&gt;();</span>
 
 <span class="fc bfc" id="L11" title="All 2 branches covered.">        for (Email email : emails) {</span>
-<span class="fc" id="L12">            Contacto remitente = email.getRemitente();</span>
-<span class="pc bpc" id="L13" title="1 of 4 branches missed.">            if (remitente != null &amp;&amp; remitente.equalsPorNombre(remitenteBuscado)) {</span>
-<span class="fc" id="L14">                correosFiltrados.add(email);</span>
+<span class="fc" id="L12">            Contacto remitente = email.getRemitente(); // se obtiene la lista de los remitente</span>
+<span class="pc bpc" id="L13" title="1 of 4 branches missed.">            if (remitente != null &amp;&amp; remitente.equalsPorNombre(remitenteBuscado)) { //Veririca si la lista no es nula y contiene el remitente buscado</span>
+<span class="fc" id="L14">                correosFiltrados.add(email); // Si el remitente se encuentra en la lista de remitentess, agrega este correo a la lista de correos filtrados.</span>
             }
 <span class="fc" id="L16">        }</span>
 <span class="fc" id="L17">        return correosFiltrados;</span>
