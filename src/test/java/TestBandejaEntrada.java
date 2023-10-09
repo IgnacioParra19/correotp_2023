@@ -10,19 +10,27 @@ import com.correotp.Contacto;
 import com.correotp.Email;
 
 public class TestBandejaEntrada {
+
     @Test
-    public void testAgregarEmailRecibidos() {
-        BandejaEntrada bandeja = new BandejaEntrada();
-        
+    public void testAgregarEmailRecibido() {
+        // Crear una instancia de BandejaEntrada
+        BandejaEntrada bandejaEntrada = new BandejaEntrada();
+
+        // Crear un correo electrónico
         Contacto remitente = new Contacto("John Doe", "john@example.com");
         List<Contacto> para = new ArrayList<>();
         para.add(new Contacto("Alice Smith", "alice@example.com"));
-        Email email = new Email("Prueba", "Este es el contenido de prueba", remitente, para);
+        Email email = new Email("Correo 1", "Contenido 1", remitente, para);
 
-        bandeja.agregarEmailEnviados(email);
+        // Agregar el correo a la bandeja de entrada
+        bandejaEntrada.agregarEmailRecibidos(email);
 
-        assertTrue(bandeja.getEmailsRecibidos().contains(email));
+        // Verificar que el correo se haya agregado correctamente
+        assertEquals(1, bandejaEntrada.getEmailsRecibidos().size());
+        assertEquals("Correo 1", bandejaEntrada.getEmailsRecibidos().get(0).getAsunto());
     }
+
+
     @Test
     public void testAgregarEmailRecibidosConVariosCorreos() {
         BandejaEntrada bandeja = new BandejaEntrada();
@@ -38,8 +46,8 @@ public class TestBandejaEntrada {
         para2.add(new Contacto("Bob Johnson", "bob@example.com"));
         Email email2 = new Email("Prueba 2", "Contenido 2", remitente2, para2);
 
-        bandeja.agregarEmailEnviados(email1);
-        bandeja.agregarEmailEnviados(email2);
+        bandeja.agregarEmailRecibidos(email1);
+        bandeja.agregarEmailRecibidos(email2);
 
         assertTrue(bandeja.getEmailsRecibidos().contains(email1));
         assertTrue(bandeja.getEmailsRecibidos().contains(email2));

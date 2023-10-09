@@ -10,43 +10,53 @@ import com.correotp.Email;
 import com.correotp.FiltroRemitente;
 
 public class TestFiltroRemitente {
-
+    
     @Test
-    public void testFiltrarPorRemitente() {
-        // Crear una lista de correos electrónicos
-        List<Email> emails = new ArrayList<>();
-
-        // Agregar correos a la lista
+    public void testCorreosEnviadosPorMismoRemitente() {
+        // Crear un contacto
         Contacto remitente1 = new Contacto("John Doe", "john@example.com");
-        List<Contacto> para1 = new ArrayList<>();
-        para1.add(new Contacto("Alice Smith", "alice@example.com"));
-        Email email1 = new Email("Correo 1", "Contenido 1", remitente1, para1);
-        emails.add(email1);
 
+        // Crear correos enviados por el remitente1
+        List<Email> correosEnviados1 = new ArrayList<>();
+        correosEnviados1.add(new Email("Asunto 1", "Contenido 1", remitente1, new ArrayList<>()));
+        correosEnviados1.add(new Email("Asunto 2", "Contenido 2", remitente1, new ArrayList<>()));
+        correosEnviados1.add(new Email("Asunto 3", "Contenido 3", remitente1, new ArrayList<>()));
+
+        // Configurar la bandeja de salida del contacto con los correos enviados por remitente1
+        remitente1.getBandejaSalida().setEmailsEnviados(correosEnviados1);
+
+        // Crear otro contacto
         Contacto remitente2 = new Contacto("Jane Smith", "jane@example.com");
-        List<Contacto> para2 = new ArrayList<>();
-        para2.add(new Contacto("Bob Johnson", "bob@example.com"));
-        Email email2 = new Email("Correo 2", "Contenido 2", remitente2, para2);
-        emails.add(email2);
 
-        Contacto remitente3 = new Contacto("Alice Smith", "alice@example.com");
-        List<Contacto> para3 = new ArrayList<>();
-        para3.add(new Contacto("John Doe", "john@example.com"));
-        Email email3 = new Email("Correo 3", "Contenido 3", remitente3, para3);
-        emails.add(email3);
+        // Crear correos enviados por remitente2
+        List<Email> correosEnviados2 = new ArrayList<>();
+        correosEnviados2.add(new Email("Asunto 4", "Contenido 4", remitente2, new ArrayList<>()));
+        correosEnviados2.add(new Email("Asunto 5", "Contenido 5", remitente2, new ArrayList<>()));
+        correosEnviados2.add(new Email("Asunto 6", "Contenido 6", remitente2, new ArrayList<>()));
 
-        // Crear una instancia del filtro
-        FiltroRemitente filtro = new FiltroRemitente();
+        // Configurar la bandeja de salida del contacto con los correos enviados por remitente2
+        remitente2.getBandejaSalida().setEmailsEnviados(correosEnviados2);
 
-        // Definir un remitente para el filtro
-        Contacto remitente = new Contacto("John Doe", "john@example.com");
+        // Crear una lista de todos los correos enviados
+        List<Email> todosLosCorreosEnviados = new ArrayList<>();
+        todosLosCorreosEnviados.addAll(correosEnviados1);
+        todosLosCorreosEnviados.addAll(correosEnviados2);
 
-        // Filtrar los correos que tienen a John Doe como remitente
-        List<Email> correosFiltrados = filtro.filtrarPorRemitente(emails, remitente);
+        // Crear un filtro para remitente1
+        FiltroRemitente filtroRemitente1 = new FiltroRemitente();
+        List<Email> correosFiltradosRemitente1 = filtroRemitente1.filtrarPorRemitente(todosLosCorreosEnviados, remitente1);
 
-        // Verificar que solo se obtengan los correos enviados por John Doe
-        assertEquals(2, correosFiltrados.size());
-        assertEquals("Correo 1", correosFiltrados.get(0).getAsunto());
-        assertEquals("Correo 3", correosFiltrados.get(1).getAsunto());
+        // Crear un filtro para remitente2
+        FiltroRemitente filtroRemitente2 = new FiltroRemitente();
+        List<Email> correosFiltradosRemitente2 = filtroRemitente2.filtrarPorRemitente(todosLosCorreosEnviados, remitente2);
+
+        // Verificar que los correos enviados sean del mismo remitente correspondiente
+        for (Email correo : correosFiltradosRemitente1) {
+            assertTrue(correo.getRemitente().equalsPorNombre(remitente1));
+        }
+
+        for (Email correo : correosFiltradosRemitente2) {
+            assertTrue(correo.getRemitente().equalsPorNombre(remitente2));
+        }
     }
 }

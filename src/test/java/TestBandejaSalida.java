@@ -12,18 +12,22 @@ import com.correotp.Email;
 public class TestBandejaSalida {
 
     @Test
-    public void testAgregarEmailEnviados() {
-        BandejaSalida bandeja = new BandejaSalida();
-        
-        // Crear un correo para agregar a la bandeja
+    public void testAgregarEmailEnviado() {
+        // Crear una instancia de BandejaSalida
+        BandejaSalida bandejaSalida = new BandejaSalida();
+
+        // Crear un correo electrónico
         Contacto remitente = new Contacto("John Doe", "john@example.com");
         List<Contacto> para = new ArrayList<>();
         para.add(new Contacto("Alice Smith", "alice@example.com"));
-        Email email = new Email("Prueba", "Este es el contenido de prueba", remitente, para);
+        Email email = new Email("Correo 1", "Contenido 1", remitente, para);
 
-        bandeja.agregarEmailEnviados(email);
+        // Agregar el correo a la bandeja de salida
+        bandejaSalida.agregarEmailEnviados(email);
 
-        assertTrue(bandeja.getEmailsEnviados().contains(email));
+        // Verificar que el correo se haya agregado correctamente
+        assertEquals(1, bandejaSalida.getEmailsEnviados().size());
+        assertEquals("Correo 1", bandejaSalida.getEmailsEnviados().get(0).getAsunto());
     }
 
     @Test

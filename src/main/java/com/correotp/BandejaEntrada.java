@@ -6,7 +6,7 @@ import java.util.List;
 public class BandejaEntrada {
     private List<Email> emailsRecibidos = new ArrayList<>();
 
-    public void agregarEmailEnviados(Email email){
+    public void agregarEmailRecibidos(Email email){
         emailsRecibidos.add(email);
     }
     

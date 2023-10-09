@@ -24,4 +24,20 @@ public class TestContacto {
         assertEquals("Jane Smith", contacto.getNombre());
         assertEquals("jane@example.com", contacto.getEmail());
     }
+    @Test
+    public void testEqualsPorNombre() {
+        // Crear dos contactos con el mismo nombre
+        Contacto contacto1 = new Contacto("John Doe", "john@example.com");
+        Contacto contacto2 = new Contacto("John Doe", "johndoe@example.com");
+
+        // Comparar los contactos por nombre
+        assertTrue(contacto1.equalsPorNombre(contacto2));
+
+        // Crear dos contactos con nombres diferentes
+        Contacto contacto3 = new Contacto("Alice Smith", "alice@example.com");
+        Contacto contacto4 = new Contacto("Bob Johnson", "bob@example.com");
+
+        // Comparar los contactos por nombre
+        assertTrue(!contacto3.equalsPorNombre(contacto4));
+    }
 }
