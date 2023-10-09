@@ -88,10 +88,6 @@ jobs:
           rm .gitignore
           git add .gitignore
 
-          git checkout -- openTestResults.bat
-          rm openTestResults.bat
-          git add openTestResults.bat
-
           git checkout -- pom.xml
           rm pom.xml
           git add pom.xml
