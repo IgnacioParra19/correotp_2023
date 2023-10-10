@@ -59,4 +59,32 @@ public class TestMailManager {
         assertEquals(bob, correoEnviadoAlice.getPara().get(0));
         assertEquals(carol, correoEnviadoAlice.getPara().get(1));
     }
+    @Test
+    public void testEnvioDe100CorreosYRecepcion() {
+        // Crear usuarios
+        Contacto remitente = new Contacto("Alice Smith", "alice@example.com");
+        Contacto destinatario = new Contacto("Bob Johnson", "bob@example.com");
+        
+        // Agregar usuarios al sistema de MailManager
+        MailManager mailManager = new MailManager();
+        mailManager.agregarUsuario(remitente);
+        mailManager.agregarUsuario(destinatario);
+        
+        // Crear lista de destinatarios
+        List<Contacto> para = new ArrayList<>();
+        para.add(destinatario);
+        
+        // Enviar 100 correos de Alice a Bob
+        for (int i = 0; i < 100; i++) {
+            String asunto = "Correo #" + i;
+            String contenido = "Contenido del correo #" + i;
+            
+            // Enviar el correo
+            mailManager.enviarCorreo(remitente, para, asunto, contenido);
+        }
+        
+        // Verificar que Bob haya recibido los 100 correos
+        List<Email> bandejaEntradaBob = destinatario.getBandejaEntrada().getEmailsRecibidos();
+        assertEquals(100, bandejaEntradaBob.size()); // Bob debería tener 100 correos en su bandeja de entrada
+    }
 }

@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="AR"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Eclipse Adoptium\jdk-17.0.8.7-hotspot\bin"/>
-    <property name="sun.java.command" value="C:\Users\ignac\AppData\Local\Temp\surefire15650306938993949845\surefirebooter16442556107118395987.jar C:\Users\ignac\AppData\Local\Temp\surefire15650306938993949845 2023-10-09T13-42-07_632-jvmRun1 surefire12765152496657653636tmp surefire_09317144169597057803tmp"/>
+    <property name="sun.java.command" value="C:\Users\ignac\AppData\Local\Temp\surefire8088586367969597871\surefirebooter5527816678518557356.jar C:\Users\ignac\AppData\Local\Temp\surefire8088586367969597871 2023-10-10T15-03-53_236-jvmRun1 surefire15829756231030594283tmp surefire_015986564213958994260tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="c:\Users\ignac\OneDrive\Documentos\UCP\Paradigmas y lenguajes de programación II\correotp_2023\target\test-classes;c:\Users\ignac\OneDrive\Documentos\UCP\Paradigmas y lenguajes de programación II\correotp_2023\target\classes;C:\Users\ignac\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\ignac\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\ignac\AppData\Local\Temp\surefire15650306938993949845\surefirebooter16442556107118395987.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\ignac\AppData\Local\Temp\surefire8088586367969597871\surefirebooter5527816678518557356.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.8+7"/>

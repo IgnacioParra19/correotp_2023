@@ -10,7 +10,7 @@ public class MailManager {
         this.usuarios = new ArrayList<>();
     }
 
-    // Agregar un usuario al sistema
+    
     public void agregarUsuario(Contacto usuario) {
         usuarios.add(usuario);
     }
